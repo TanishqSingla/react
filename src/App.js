@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import Todo from "./components/Todo";
+import AddTodo from "./components/AddTodo";
+const uuid = require("uuid");
 
 class App extends Component {
   state = {
@@ -34,15 +36,27 @@ class App extends Component {
     });
   };
 
+  //delete list item
   delItem = (id) => {
     this.setState({
       todos: this.state.todos.filter((todo) => todo.id !== id),
     });
   };
 
+  //add list item
+  addTodo = (title) => {
+    const newTodo = {
+      id: uuid.v4(),
+      title,
+      completed: false,
+    };
+    this.setState({ todos: [...this.state.todos, newTodo] });
+  };
+
   render() {
     return (
       <div className="App">
+        <AddTodo addTodo={this.addTodo} />
         <Todo
           todos={this.state.todos}
           complete={this.complete}
