@@ -23,10 +23,21 @@ class App extends Component {
     ],
   };
 
+  complete = (id) => {
+    this.setState({
+      todos: this.state.todos.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      }),
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <Todo todos={this.state.todos} />
+        <Todo todos={this.state.todos} complete={this.complete} />
       </div>
     );
   }
