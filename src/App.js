@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Todo from "./components/Todo";
 import AddTodo from "./components/AddTodo";
+import About from "./components/About";
 
 //adding a router
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -62,6 +63,7 @@ class App extends Component {
     return (
       <Router>
         <Route
+          exact
           path="/"
           render={(props) => (
             <React.Fragment>
@@ -76,6 +78,7 @@ class App extends Component {
             </React.Fragment>
           )}
         />
+        <Route path="/about" component={About} />
       </Router>
     );
   }
