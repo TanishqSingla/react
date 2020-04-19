@@ -18,7 +18,7 @@ class TodoItem extends Component {
             onChange={this.props.complete.bind(this, id)}
           />
           {title}
-          <button>x</button>
+          <button onClick={this.props.delItem.bind(this, id)}>x</button>
         </p>
       </div>
     );
