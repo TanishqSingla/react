@@ -18,6 +18,7 @@ class TodoItem extends Component {
             onChange={this.props.complete.bind(this, id)}
           />
           {title}
+          <button>x</button>
         </p>
       </div>
     );
